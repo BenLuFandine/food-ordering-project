@@ -1,5 +1,11 @@
 'use strict';
 
+// angular.module('app.user.controllers', []);
+
+// var webAdminApp = angular.module('foodOrderingProjectApp', [
+//   'app.user.services', //login, reset password etc
+// ]);
+
 /**
  * @ngdoc overview
  * @name foodOrderingProjectApp
@@ -15,21 +21,43 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(['$stateProvider','$urlRouterProvider', 
+    function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/home');
+
+    $stateProvider
+      .state('main', {
+        abstract : true,
+        url: '',
+        views: {
+            'header': {
+                templateUrl: 'index-header.html'
+            },
+            'content': {
+                templateUrl: 'index-content.html'
+            },
+            'footer': {
+                templateUrl: 'index-footer.html'
+            }
+        }
+        // controllerAs: 'main'
+      })
+      .state('main.home', {
+        url: "/home",
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'MainCtrl'
+        // controllerAs: 'about'
       })
-      .when('/about', {
+      .state('main.about', {
+        url: "/about",
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
+        controller: 'AboutCtrl'
+        // controllerAs: 'about'
       });
-  });
+      // .otherwise({
+      //   redirectTo: '/'
+      // });
+  }]);
