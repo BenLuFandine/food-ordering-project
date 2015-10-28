@@ -1,0 +1,39 @@
+ <div class="restaurant-list">
+ 	<!-- <div class="container"> -->
+	<div>
+		<p><i class="glyphicon glyphicon-globe"></i>Current Location: <b>{{ currentLocation }}</b>&nbsp;<a ui-sref="main.home">[Enter another location]</a></p>
+	</div>
+
+	<h1>Restaurants</h1>
+	<div class="col-md-3">
+		<a ui-sref="restaurant.menu({restaurantName: 'Lucky Yeung', currentLocation: currentLocation})">
+		<h3>Lucky Yeung</h3>
+		<i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+		<p>$15 min / FREE delivery</p>
+		</a>
+	</div>
+	<div class="col-md-3">
+		<a ui-sref="restaurant.menu({restaurantName: 'Rice Bowl', currentLocation: currentLocation})">
+		<h3>Rice Bowl</h3>
+		<i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+		<p>$15 min / FREE delivery</p>
+		</a>
+	</div>
+	<div class="col-md-3">
+		<h3>Restaurant Name</h3>
+		<i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+		<p>$15 min / FREE delivery</p>
+	</div>
+	<div class="col-md-3">
+		<h3>Restaurant Name</h3>
+		<i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+		<p>$15 min / FREE delivery</p>
+	</div>
+ 	<!-- </div> -->
+	<!-- <h1>A Bite of Kamloops</h1>
+	<p class="lead">
+		<i class="glyphicon glyphicon-cutlery"></i><br>
+		Your food adventures start from here.
+	</p>
+	<p><input type="text" placeholder="Your Address" class="form-control"><a class="btn btn-lg btn-success" ui-sref="#/">Find Your Food<span class="glyphicon glyphicon-ok"></span></a></p> -->
+</div>

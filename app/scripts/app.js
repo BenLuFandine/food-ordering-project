@@ -56,6 +56,38 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
         // controllerAs: 'about'
+      })
+      .state('main.contact', {
+        url: "/contact",
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+        // controllerAs: 'about'
+      })
+
+      .state('restaurant', {
+        abstract : true,
+        url: '/restaurant',
+        views: {
+            'header': {
+                templateUrl: 'index-header.html'
+            },
+            'content': {
+                templateUrl: 'index-content.html'
+            },
+            'footer': {
+                templateUrl: 'index-footer.html'
+            }
+        }
+      })
+      .state('restaurant.list', {
+        url: "/restaurant_list/:currentLocation",
+        templateUrl: 'modules/restaurant/restaurant-list.tpl.html',
+        controller: 'RestaurantListCtrl'
+      })
+      .state('restaurant.menu', {
+        url: "/restaurant_menu/:currentLocation/:restaurantName",
+        templateUrl: 'modules/restaurant/restaurant-menu.tpl.html',
+        controller: 'RestaurantMenuCtrl'
       });
       // .otherwise({
       //   redirectTo: '/'

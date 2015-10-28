@@ -2,18 +2,16 @@
 
 /**
  * @ngdoc function
- * @name foodOrderingProjectApp.controller:MainCtrl
+ * @name foodOrderingProjectApp.controller:AboutCtrl
  * @description
- * # MainCtrl
+ * # AboutCtrl
  * Controller of the foodOrderingProjectApp
  */
 angular.module('foodOrderingProjectApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('ContactCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    // $scope.currentLocation = "ABC";
-    // console.log($scope.currentLocation);
   });
