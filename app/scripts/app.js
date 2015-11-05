@@ -14,6 +14,9 @@
  *
  * Main module of the application.
  */
+
+angular.module('app.restaurant.services',[]);
+
 angular
   .module('foodOrderingProjectApp', [
     'ngAnimate',
@@ -22,7 +25,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'app.restaurant.services'
   ])
   .config(['$stateProvider','$urlRouterProvider', 
     function ($stateProvider, $urlRouterProvider) {
@@ -92,4 +96,9 @@ angular
       // .otherwise({
       //   redirectTo: '/'
       // });
+  }])
+  .config(["$httpProvider", 
+    function($httpProvider) {
+      $httpProvider.defaults.useXDomain = true;
+      delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }]);

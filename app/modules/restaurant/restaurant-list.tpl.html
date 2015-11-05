@@ -1,3 +1,49 @@
+<style>
+/*	.star-rating {
+	  margin: 0;
+	  padding: 0;
+	  display: inline-block;
+	  
+	  .star {
+	    padding: 1px;
+	    color: #ddd;
+	    font-size: 20px;
+	    text-shadow: .05em .05em #aaa;
+	    list-style-type: none;
+	    display: inline-block;
+	    cursor: pointer;
+
+	    &.filled {
+	      color: #fd0;
+	    }
+	  }
+
+	  &.readonly .star.filled {
+	    color: #666;
+	  }
+	}*/
+
+	.rating {
+	    color: #a9a9a9;
+	    margin: 0;
+	    padding: 0;
+	}
+	ul.rating {
+	    display: inline-block;
+	}
+	.rating li {
+	    list-style-type: none;
+	    display: inline-block;
+	    padding: 1px;
+	    text-align: center;
+	    font-weight: bold;
+	    cursor: pointer;
+	}
+	.rating .filled {
+	    color: red;
+	}
+</style>
+
  <div class="restaurant-list">
  	<!-- <div class="container"> -->
 	<div>
@@ -5,7 +51,7 @@
 	</div>
 
 	<h1>Restaurants</h1>
-	<div class="col-md-3">
+	<!-- <div class="col-md-3">
 		<a ui-sref="restaurant.menu({restaurantName: 'Lucky Yeung', currentLocation: currentLocation})">
 		<h3>Lucky Yeung</h3>
 		<i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
@@ -28,12 +74,14 @@
 		<h3>Restaurant Name</h3>
 		<i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
 		<p>$15 min / FREE delivery</p>
+	</div> -->
+	<!-- {{restaurantList[0].restaurant[0].rating}} -->
+	<div class="col-md-3" ng-repeat="my_restaurant in restaurantList[0].restaurant">
+		<a ui-sref="restaurant.menu({restaurantName: my_restaurant.restaurant_name, currentLocation: currentLocation})">
+			<h3>{{my_restaurant.restaurant_name}}</h3>
+		</a>
+			<!-- <div star-rating ng-model="my_restaurant.rating" max="5" on-rating-select="rating.rateFunction(rating)"></div> -->
+		<div star-rating rating-value="my_restaurant.rating" max="5" on-rating-selected="getSelectedRating(rating)"></div>
+		<p>$15 min / FREE delivery</p>
 	</div>
- 	<!-- </div> -->
-	<!-- <h1>A Bite of Kamloops</h1>
-	<p class="lead">
-		<i class="glyphicon glyphicon-cutlery"></i><br>
-		Your food adventures start from here.
-	</p>
-	<p><input type="text" placeholder="Your Address" class="form-control"><a class="btn btn-lg btn-success" ui-sref="#/">Find Your Food<span class="glyphicon glyphicon-ok"></span></a></p> -->
 </div>
